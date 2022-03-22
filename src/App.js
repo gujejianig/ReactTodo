@@ -24,7 +24,6 @@ const App = () => {
 			submitHandler(event);
 		}
 	};
-
 	return (
 		<>
 			<div className="Container">
