@@ -19,6 +19,7 @@ const App = () => {
 		setInputValue('');
 	};
 
+
 	const handleKeyDown = (event) => {
 		if (event.key === 'Enter') {
 			submitHandler(event);
