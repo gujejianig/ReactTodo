@@ -19,11 +19,11 @@ const App = () => {
 		setInputValue('');
 	};
 
-		const handleKeyDown = (event) => {
-			if (event.key === 'Enter') {
-				submitHandler(event)
-			}
+	const handleKeyDown = (event) => {
+		if (event.key === 'Enter') {
+			submitHandler(event);
 		}
+	};
 
 	return (
 		<>
@@ -36,9 +36,9 @@ const App = () => {
 				{todos?.map((item) => {
 					return (
 						<div className="bg-success bg-opacity-10 rounded-3 p-lg-2 d-flex mt-3 align-items-center">
-							<span  style={{fontSize: "24px"}}>{item.task}</span>
-							<Button className="m-lg-2" size="sm"  variant="danger">Remove</Button>
-							<Button className="" size="sm"  variant="info">edit</Button>
+							<span style={{fontSize: "24px"}}>{item.task}</span>
+							<Button className="m-lg-2" size="sm" variant="danger">Remove</Button>
+							<Button className="" size="sm" variant="info">edit</Button>
 						</div>
 					);
 				})}
