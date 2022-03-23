@@ -10,6 +10,7 @@ const App = () => {
 	const [inputValue, setInputValue] = useState('');
 	const [todosPerPage, setTodosPerPage] = useState(5);
 	const [activePage, setActivePage] = useState(1);
+	const [paginationButtons, setPaginationButtons] = useState([]);
 	const submitHandler = (e) => {
 		e.preventDefault();
 		if (!inputValue) {
@@ -37,7 +38,6 @@ const App = () => {
 		setActivePage(activeNumber);
 	};
 
-	console.log(start, end);
 
 
 	return (
