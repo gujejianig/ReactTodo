@@ -7,8 +7,8 @@ import Pagination from "./components/Pagination";
 const App = () => {
 	const [todos, setTodos] = useState([]);
 	const [inputValue, setInputValue] = useState('');
-	let start = 0;
-	let end = 5;
+	const [todosPerPage, setTodosPerPage] = useState(5);
+
 	const submitHandler = (e) => {
 		e.preventDefault();
 		if (!inputValue) {
@@ -45,7 +45,7 @@ const App = () => {
 						<Button className="" size="sm" variant="info">edit</Button>
 					</div>);
 				})}
-				<Pagination todos={todos}/>
+				<Pagination todos={todos} todosPerPage={todosPerPage}/>
 
 			</div>
 
