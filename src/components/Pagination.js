@@ -1,7 +1,7 @@
 import React from "react";
 import {Button} from 'react-bootstrap';
 
-const Pagination = ({todos, todosPerPage, onPaginatedList, paginationButtons, activePage}) => {
+const Pagination = ({todos, todosPerPage, onPaginatedList, paginationButtons}) => {
 
 	paginationButtons = [];
 	for (let i = 1; i <= Math.ceil(todos.length / todosPerPage); i++) {
@@ -14,7 +14,7 @@ const Pagination = ({todos, todosPerPage, onPaginatedList, paginationButtons, ac
 		<div className="d-flex">
 			{paginationButtons?.map((btn, index) => {
 				return <div key={index}>
-					<Button onClick={() => onPaginatedList(index + 1)} size="sm" className={activePage === btn ? 'active' : ''}
+					<Button onClick={() => onPaginatedList(index + 1)} size="sm" className="m-1"
 					        variant="outline-dark">{btn}</Button>
 				</div>;
 			})}
