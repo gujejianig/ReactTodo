@@ -6,6 +6,7 @@ const Pagination = ({todos, todosPerPage, onPaginatedList, paginationButtons, ac
 	paginationButtons = [];
 	for (let i = 1; i <= Math.ceil(todos.length / todosPerPage); i++) {
 		paginationButtons.push(i);
+
 	}
 
 // Hello
