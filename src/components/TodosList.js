@@ -20,7 +20,6 @@ const TodosList = ({todos, setTodos, todosPerPage, activePage}) => {
 		});
 
 		setEditing(true);
-
 		console.log(selectedTodo);
 
 	};
