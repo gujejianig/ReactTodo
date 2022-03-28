@@ -1,12 +1,11 @@
 import React from "react";
 import {Button} from 'react-bootstrap';
 
-const Pagination = ({todos, todosPerPage, onPaginatedList, paginationButtons, activePage}) => {
+const Pagination = ({todos, todosPerPage, onPaginatedList, activePage}) => {
 
-	paginationButtons = [];
+	let paginationButtons = [];
 	for (let i = 1; i <= Math.ceil(todos.length / todosPerPage); i++) {
 		paginationButtons.push(i);
-
 	}
 
 // Hello
