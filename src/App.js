@@ -10,7 +10,6 @@ const App = () => {
 	const [inputValue, setInputValue] = useState('');
 	const [todosPerPage, setTodosPerPage] = useState(5);
 	const [activePage, setActivePage] = useState(1);
-	const [paginationButtons, setPaginationButtons] = useState([]);
 	const submitHandler = (e) => {
 		e.preventDefault();
 		if (!inputValue) {
@@ -20,6 +19,9 @@ const App = () => {
 			console.log(newItem);
 			// adding to Todos - main data
 			setTodos([...todos, newItem]);
+			for (let i = 1; i <= Math.ceil(todos.length / todosPerPage); i++) {
+				setActivePage(i);
+			}
 		}
 		setInputValue('');
 	};
@@ -38,6 +40,7 @@ const App = () => {
 		setActivePage(activeNumber);
 	};
 
+	console.log(start, end);
 
 
 	return (
@@ -55,7 +58,7 @@ const App = () => {
 						<Button className="" size="sm" variant="info">edit</Button>
 					</div>);
 				})}
-				<Pagination onPaginatedList={paginatedList} todos={todos} todosPerPage={todosPerPage}/>
+				<Pagination activePage={activePage} onPaginatedList={paginatedList} todos={todos} todosPerPage={todosPerPage}/>
 
 			</div>
 
