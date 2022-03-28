@@ -21,5 +21,5 @@ const Pagination = ({todos, todosPerPage, onPaginatedList, paginationButtons}) =
 		</div>
 	</>);
 };
-// HELLLO  COMMIT 1
+
 export default Pagination;
