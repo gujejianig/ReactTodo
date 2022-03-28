@@ -13,6 +13,7 @@ const Pagination = ({todos, todosPerPage, onPaginatedList, activePage, setPagina
 		{paginationButtons?.map((btn, index) => {
 			console.log('btn', btn);
 			console.log('index', index);
+			setActivePage(btn); ////////////////////////////////////////////////////// !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 			// onPaginatedList(btn)
 			return <div key={index}>
 				<Button onClick={() => onPaginatedList(index + 1)} size="sm" className={activePage === btn ? 'active' : ''}
