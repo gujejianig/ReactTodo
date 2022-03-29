@@ -14,6 +14,8 @@ const TodosList = ({todos, setTodos, todosPerPage, activePage}) => {
 			return todo.id !== id;
 		}));
 	};
+	
+
 	const editHandler = (id) => {
 		const selectedTodo = todos.find(item => item.id === id)
 
