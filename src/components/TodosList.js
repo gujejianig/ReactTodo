@@ -14,10 +14,9 @@ const TodosList = ({todos, setTodos, todosPerPage, activePage}) => {
 			return todo.id !== id;
 		}));
 	};
-	
 
 	const editHandler = (id) => {
-		const selectedTodo = todos.find(item => item.id === id)
+		let selectedTodo = todos.find(item => item.id === id);
 
 		if(!editing) {
 			setEditing(true)
@@ -27,6 +26,7 @@ const TodosList = ({todos, setTodos, todosPerPage, activePage}) => {
 			selectedTodo = name
 		}
 	};
+	
 	let end = activePage * todosPerPage;
 	let start = end - todosPerPage;
 	return (<>
