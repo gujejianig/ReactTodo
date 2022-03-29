@@ -21,7 +21,6 @@ const TodosList = ({todos, setTodos, todosPerPage, activePage}) => {
 
 		setEditing(!editing);
 		console.log(selectedTodo);
-
 	};
 	let end = activePage * todosPerPage;
 	let start = end - todosPerPage;
