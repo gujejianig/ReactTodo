@@ -11,15 +11,15 @@ const TodosList = ({todos, setTodos, todosPerPage, activePage}) => {
 			return todo.id !== id;
 		}));
 	};
-	const editHandler = (index) => {
-		// const filteredItems = todos.filter((todo) => {
+	const editHandler = (id) => {
+		// const filteredItems = todos.filter((todo) => {index
 		// 	return todo.id !== index
 		// })
 		const selectedTodo = todos.find((item) => {
-			return item.id === index;
+			return item.id === id;
 		});
 
-		setEditing(true);
+		setEditing(!editing);
 		console.log(selectedTodo);
 
 	};

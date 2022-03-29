@@ -6,7 +6,6 @@ const Pagination = ({todos, todosPerPage, onPaginatedList, activePage, setPagina
 	let paginationButtons = [];
 	for (let i = 1; i <= Math.ceil(todos.length / todosPerPage); i++) {
 		paginationButtons.push(i);
-
 	}
 
 	return (<div className="d-flex">
