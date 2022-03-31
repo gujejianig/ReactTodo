@@ -1,7 +1,7 @@
 import {Button} from "react-bootstrap";
 import React from "react";
 
-const SearchForm = ({inputValue, setInputValue, setTodos, todos}) => {
+const SearchForm = ({inputValue, setInputValue, setTodos, todos, onPaginatedList, todosPerPage}) => {
 
 	const submitHandler = (e) => {
 		e.preventDefault();
@@ -11,8 +11,9 @@ const SearchForm = ({inputValue, setInputValue, setTodos, todos}) => {
 			const newItem = {task: inputValue, id: Math.random()};
 			// adding to Todos - main data
 			setTodos([...todos, newItem]);
+			let paginationControler = todos.length + 1;
+			onPaginatedList(Math.ceil(paginationControler / todosPerPage));
 		}
-
 		setInputValue('');
 	};
 

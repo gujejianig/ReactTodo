@@ -11,7 +11,6 @@ const App = () => {
 	const [inputValue, setInputValue] = useState('');
 	const todosPerPage = 5;
 	const [activePage, setActivePage] = useState(1);
-	const [paginate, setPaginate] = useState(1);
 
 	const paginatedList = (activeNumber) => {
 		setActivePage(activeNumber);
@@ -20,9 +19,11 @@ const App = () => {
 
 	return (<>
 		<div className="Container">
-			<SearchForm todos={todos} setTodos={setTodos} inputValue={inputValue} setInputValue={setInputValue}/>
-			<TodosList setTodos={setTodos} todosPerPage={todosPerPage} activePage={activePage} todos={todos}/>
-			<Pagination setActivePage={setActivePage} setPaginate={setPaginate}
+			<SearchForm onPaginatedList={paginatedList} todosPerPage={todosPerPage} todos={todos} setTodos={setTodos}
+			            inputValue={inputValue} setInputValue={setInputValue}/>
+			<TodosList onPaginatedList={paginatedList} setTodos={setTodos} todosPerPage={todosPerPage} activePage={activePage}
+			           todos={todos}/>
+			<Pagination setActivePage={setActivePage}
 			            activePage={activePage} onPaginatedList={paginatedList} todos={todos} todosPerPage={todosPerPage}
 			/>
 		</div>

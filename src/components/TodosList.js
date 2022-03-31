@@ -1,17 +1,12 @@
 import {Button} from "react-bootstrap";
-import React, {useState, useEffect} from "react";
+import React, {useState} from "react";
 
 
-const TodosList = ({todos, setTodos, todosPerPage, activePage}) => {
+const TodosList = ({todos, setTodos, todosPerPage, activePage, onPaginatedList}) => {
 
 	const [editing, setEditing] = useState(false);
 	const [name, setName] = useState('');
 	const [editId, setEditId] = useState(null);
-	const [checkboxId, setCheckboxId] = useState([]);
-	const [boxChecked, setBoxchecked] = useState([]);
-
-
-	const [checked, setChecked] = useState([]);
 
 
 	const removeHandler = (id) => {
@@ -23,7 +18,12 @@ const TodosList = ({todos, setTodos, todosPerPage, activePage}) => {
 			setEditId('');
 			setEditing(false);
 		}
+
+		// Reduce pagination by one when the last item is deleted from the page
+	
+
 	};
+
 
 	const editHandler = (id) => {
 		let selectedTodo = todos.find(item => item.id === id);
@@ -59,13 +59,8 @@ const TodosList = ({todos, setTodos, todosPerPage, activePage}) => {
 		{todos.slice(start, end)?.map((item) => {
 			return (<div key={item.id} className="bg-success bg-opacity-10 rounded-3 p-lg-2 d-flex mt-3 align-items-center">
 				{editId === item.id ? <input value={name} onChange={(e) => setName(e.target.value)}/> :
-
-
 					<span style={{fontSize: "24px", textDecoration: item.done ? "line-through" : ''}}>{item.task}</span>}
-
-				<input onChange={(event) => checkboxHandler(item.id)} type="checkbox"/>
-
-
+				<input onChange={() => checkboxHandler(item.id)} type="checkbox"/>
 				<Button onClick={() => removeHandler(item.id)} className="m-lg-2" size="sm"
 				        variant="danger">{editId === item.id ? "cancel" : "remove"}</Button>
 				<Button onClick={() => editHandler(item.id)} className="" size="sm"
