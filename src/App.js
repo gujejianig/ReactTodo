@@ -21,8 +21,8 @@ const App = () => {
 		<div className="Container">
 			<SearchForm onPaginatedList={paginatedList} todosPerPage={todosPerPage} todos={todos} setTodos={setTodos}
 			            inputValue={inputValue} setInputValue={setInputValue}/>
-			<TodosList onPaginatedList={paginatedList} setTodos={setTodos} todosPerPage={todosPerPage} activePage={activePage}
-			           todos={todos}/>
+			<TodosList setActivePage={setActivePage} onPaginatedList={paginatedList} setTodos={setTodos}
+			           todosPerPage={todosPerPage} activePage={activePage} todos={todos}/>
 			<Pagination setActivePage={setActivePage}
 			            activePage={activePage} onPaginatedList={paginatedList} todos={todos} todosPerPage={todosPerPage}
 			/>
