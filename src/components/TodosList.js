@@ -25,7 +25,6 @@ const TodosList = ({todos, setTodos, todosPerPage, activePage}) => {
 		}
 	};
 
-
 	const editHandler = (id) => {
 		let selectedTodo = todos.find(item => item.id === id);
 		if (!editing) {
@@ -45,11 +44,12 @@ const TodosList = ({todos, setTodos, todosPerPage, activePage}) => {
 
 		const selectedTodo = todos.map((todo) => {
 			if (todo.id === id) {
-				todo.done = true;
+				!todo.done ? todo.done = true : todo.done = false;
 			}
 			return todo;
 		});
 		setTodos(selectedTodo);
+
 	};
 
 
