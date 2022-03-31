@@ -8,6 +8,7 @@ const Pagination = ({todos, todosPerPage, onPaginatedList, activePage, setPagina
 		paginationButtons.push(i);
 	}
 
+
 	return (<div className="d-flex">
 		{paginationButtons?.map((btn, index) => {
 			console.log('btn', btn);
