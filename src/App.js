@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import "./App.css";
-import { Button } from "react-bootstrap";
+// import { Button } from "react-bootstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
 import Pagination from "./components/Pagination";
 import SearchForm from "./components/SearchForm";
@@ -46,5 +46,4 @@ const App = () => {
     </>
   );
 };
-//
 export default App;
