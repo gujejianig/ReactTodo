@@ -11,7 +11,7 @@ const Pagination = ({todos, todosPerPage, onPaginatedList, activePage, setLastBt
 	return (<div className="d-flex">
 		{paginationButtons?.map((btn, index) => {
 			// onPaginatedList(btn)
-			console.log('onPaginationBtn', btn);
+
 			setLastBtnPagination(btn);
 			return <div key={index}>
 				<Button onClick={() => onPaginatedList(index + 1)} size="sm" className={activePage === btn ? 'active' : ''}

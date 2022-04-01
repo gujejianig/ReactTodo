@@ -1,7 +1,8 @@
 import {Button} from "react-bootstrap";
-import React from "react";
+import React, {useState} from "react";
 
-const SearchForm = ({inputValue, setInputValue, setTodos, todos, onPaginatedList, todosPerPage}) => {
+const SearchForm = ({setTodos, todos, onPaginatedList, todosPerPage}) => {
+	const [inputValue, setInputValue] = useState('');
 
 	const submitHandler = (e) => {
 		e.preventDefault();
