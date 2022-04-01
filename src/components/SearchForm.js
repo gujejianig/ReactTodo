@@ -11,8 +11,8 @@ const SearchForm = ({inputValue, setInputValue, setTodos, todos, onPaginatedList
 			const newItem = {task: inputValue, id: Math.random()};
 			// adding to Todos - main data
 			setTodos([...todos, newItem]);
-			let paginationControler = todos.length + 1;
-			onPaginatedList(Math.ceil(paginationControler / todosPerPage));
+			let paginationUpdate = todos.length + 1;
+			onPaginatedList(Math.ceil(paginationUpdate / todosPerPage));
 		}
 		setInputValue('');
 	};

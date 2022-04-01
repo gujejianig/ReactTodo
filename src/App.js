@@ -11,6 +11,8 @@ const App = () => {
 	const [inputValue, setInputValue] = useState('');
 	const todosPerPage = 5;
 	const [activePage, setActivePage] = useState(1);
+	const [lastBtnPagination, setLastBtnPagination] = useState(null);
+
 
 	const paginatedList = (activeNumber) => {
 		setActivePage(activeNumber);
@@ -21,9 +23,10 @@ const App = () => {
 		<div className="Container">
 			<SearchForm onPaginatedList={paginatedList} todosPerPage={todosPerPage} todos={todos} setTodos={setTodos}
 			            inputValue={inputValue} setInputValue={setInputValue}/>
-			<TodosList setActivePage={setActivePage} onPaginatedList={paginatedList} setTodos={setTodos}
+			<TodosList lastBtnPagination={lastBtnPagination} setActivePage={setActivePage} onPaginatedList={paginatedList}
+			           setTodos={setTodos}
 			           todosPerPage={todosPerPage} activePage={activePage} todos={todos}/>
-			<Pagination setActivePage={setActivePage}
+			<Pagination setLastBtnPagination={setLastBtnPagination} setActivePage={setActivePage}
 			            activePage={activePage} onPaginatedList={paginatedList} todos={todos} todosPerPage={todosPerPage}
 			/>
 		</div>

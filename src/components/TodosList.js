@@ -2,7 +2,7 @@ import {Button} from "react-bootstrap";
 import React, {useState} from "react";
 
 
-const TodosList = ({todos, setTodos, todosPerPage, activePage, setActivePage}) => {
+const TodosList = ({todos, setTodos, todosPerPage, activePage, setActivePage, lastBtnPagination}) => {
 
 	const [editing, setEditing] = useState(false);
 	const [name, setName] = useState('');
@@ -22,8 +22,9 @@ const TodosList = ({todos, setTodos, todosPerPage, activePage, setActivePage}) =
 		// Reduce pagination by one when the last item is deleted from the page
 
 		console.log('todoslenght', todos.length - 1);
+		console.log(activePage, lastBtnPagination);
 // HERE IS CASE1!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! -<<<<<<<<<<<<<<<<
-		if ((todos.length - 1) % 5 === 0) {
+		if ((todos.length - 1) % 5 === 0 && activePage === lastBtnPagination) {
 			setActivePage(activePage - 1);
 		}
 	};
@@ -75,5 +76,9 @@ const TodosList = ({todos, setTodos, todosPerPage, activePage, setActivePage}) =
 
 };
 
-
+//ooo
 export default TodosList;
+
+
+
+
