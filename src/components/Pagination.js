@@ -16,8 +16,6 @@ const Pagination = ({
   return (
     <div className="d-flex">
       {paginationButtons?.map((btn, index) => {
-        // onPaginatedList(btn)
-
         setLastBtnPagination(btn);
         return (
           <div key={index}>
