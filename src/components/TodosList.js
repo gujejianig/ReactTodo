@@ -17,7 +17,6 @@ const TodosList = ({todos, setTodos, todosPerPage, activePage, setActivePage, la
 			setEditId('');
 			setEditing(false);
 		}
-
 		// Reduce pagination by one when the last item is deleted from the page
 		if ((todos.length - 1) % 5 === 0 && activePage === lastBtnPagination) {
 			setActivePage(activePage - 1);
