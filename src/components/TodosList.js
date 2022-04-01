@@ -55,8 +55,8 @@ const TodosList = ({todos, setTodos, todosPerPage, activePage, setActivePage, la
 		{todos.slice(start, end)?.map((item) => {
 			return (<div key={item.id} className="bg-success bg-opacity-10 rounded-3 p-lg-2 d-flex mt-3 align-items-center">
 				{editId === item.id ? <input value={editInputValue} onChange={(e) => setEditInputValue(e.target.value)}/> :
-					<span style={{fontSize: "24px", textDecoration: item.done ? "line-through" : ''}}>{item.task}</span>}
-				<input onChange={() => checkboxHandler(item.id)} type="checkbox"/>
+					<span style={{fontSize: "24px", minWidth: "100px", textDecoration: item.done ? "line-through" : ''}}>{item.task}</span>}
+				<input onChange={() => checkboxHandler(item.id)} type="checkbox" />
 				<Button onClick={() => removeHandler(item.id)} className="m-lg-2" size="sm"
 				        variant="danger">{editId === item.id ? "cancel" : "remove"}</Button>
 				<Button onClick={() => editHandler(item.id)} className="" size="sm"
