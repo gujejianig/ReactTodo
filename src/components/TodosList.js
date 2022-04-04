@@ -11,7 +11,6 @@ const TodosList = ({
 }) => {
   const [editing, setEditing] = useState(false); // controls if edit mode is on/off
   const [editInputValue, setEditInputValue] = useState(""); // for editing input Value
-  const [editId, setEditId] = useState(null); // helps React for detect which input must be edited
 
   // remove Task from the list
   const removeHandler = (id) => {
@@ -22,28 +21,38 @@ const TodosList = ({
         })
       );
     } else {
-      setEditId("");
-      setEditing(false);
+      const arr = todos.map((todo) => {
+        if (todo.id === id) {
+          todo.editMode = false;
+          setEditing(false);
+        }
+        return todo;
+      });
+      setTodos(arr);
     }
-    // Reduce pagination by one when the last item is deleted from the last page
+
+    // // Reduce pagination by one when the last item is deleted from the last page
     if ((todos.length - 1) % 5 === 0 && activePage === lastBtnPagination) {
       setActivePage(activePage - 1);
     }
   };
 
-  // edit Task
   const editHandler = (id) => {
-    let selectedTodo = todos.find((item) => item.id === id);
-    if (!editing) {
-      setEditing(true);
-      setEditId(id);
-      setEditInputValue(selectedTodo.task);
-    }
-    if (editing && editInputValue.length > 0) {
-      setEditId("");
-      selectedTodo.task = editInputValue;
-      setEditing(false);
-    }
+    const selected = todos.map((todo) => {
+      if (todo.id === id) {
+        !todo.editMode ? (todo.editMode = true) : (todo.editMode = false);
+        if (todo.editMode) {
+          setEditInputValue(todo.task);
+          setEditing(true);
+        } else {
+          todo.task = editInputValue;
+          setEditing(false);
+        }
+      }
+
+      return todo;
+    });
+    setTodos(selected);
   };
 
   const checkboxHandler = (id) => {
@@ -67,9 +76,9 @@ const TodosList = ({
             key={item.id}
             className="bg-success bg-opacity-10 rounded-3 p-lg-2 d-flex mt-3 align-items-center"
           >
-            {editId === item.id ? (
+            {item.editMode ? (
               <input
-                value={editInputValue}
+                defaultValue={item.task}
                 onChange={(e) => setEditInputValue(e.target.value)}
               />
             ) : (
@@ -90,7 +99,7 @@ const TodosList = ({
               size="sm"
               variant="danger"
             >
-              {editId === item.id ? "cancel" : "remove"}
+              {item.editMode ? "cancel" : "remove"}
             </Button>
             <Button
               onClick={() => editHandler(item.id)}
@@ -98,7 +107,7 @@ const TodosList = ({
               size="sm"
               variant="info"
             >
-              {editId === item.id ? "save" : "edit"}
+              {item.editMode ? "save" : "edit"}
             </Button>
           </div>
         );
